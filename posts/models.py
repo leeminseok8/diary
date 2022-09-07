@@ -1,9 +1,9 @@
 from django.db import models
 
-from utils import TimeStampedModel
+from utils.timestamp import TimeStampedModel
 
 
-class Post(models.Model, TimeStampedModel):
+class Post(TimeStampedModel):
     """
     Post 글 생성을 위한 기본 모델
     """

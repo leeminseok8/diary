@@ -14,6 +14,6 @@ class PostViewSet(ModelViewSet):
     serializer_class = PostSerializer
     permission_classes = [PostPermission]
 
-    def perform_create(self, serializer):
-        serializer.save(author_id=self.request.user.id)
-        return super().perform_create(serializer)
+    # def perform_create(self, serializer):
+    #     serializer.save(author_id=self.request.user.id)
+    #     return super().perform_create(serializer)

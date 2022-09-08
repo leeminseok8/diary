@@ -9,7 +9,12 @@ class PostPermission(permissions.BasePermission):
     """
 
     def has_object_permission(self, request, view, obj):
+
+        print(f"obj : {obj.password}")
+        print(f"request : {request.data.get('password')}")
+        print(f"method : {request.method}")
+
         if request.method in permissions.SAFE_METHODS or "POST":
             return True
-        else:
-            request.password == obj.password
+        elif request.method == "PATCH" or "PUT" or "DELETE":
+            return request.data.get("password") == obj.password

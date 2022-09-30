@@ -1,3 +1,5 @@
+from rest_framework import status
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import CursorPagination
 
@@ -5,6 +7,7 @@ from .serializers import PostCreateSerializer
 from .permissions import IsAuthorUser
 
 from .models import Post
+from service.whether import WhetherView
 
 
 class ProductPagination(CursorPagination):
@@ -27,3 +30,21 @@ class PostDiaryView(ModelViewSet):
     serializer_class = PostCreateSerializer
     pagination_class = ProductPagination
     permission_classes = (IsAuthorUser,)
+
+    def create(self, request):
+        whether = WhetherView()
+        diary_whether = whether.now_whether()
+
+        diary_create_data = {
+            "title": request.data["title"],
+            "content": request.data["content"],
+            "password": request.data["password"],
+            "whether": diary_whether,
+        }
+
+        serializer = PostCreateSerializer(data=diary_create_data)
+
+        if serializer.is_valid():
+            serializer.save()
+
+        return Response({"message": "일기장이 생성되었습니다."}, status=status.HTTP_201_CREATED)

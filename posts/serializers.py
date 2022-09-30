@@ -21,6 +21,7 @@ class PostCreateSerializer(serializers.ModelSerializer):
             "id",
             "title",
             "content",
+            "whether",
             "password",
             "created_at",
             "updated_at",

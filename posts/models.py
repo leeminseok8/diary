@@ -11,6 +11,7 @@ class Post(TimeStampedModel):
     title = models.CharField(max_length=20)
     content = models.TextField(max_length=200)
     password = models.CharField(max_length=256)
+    whether = models.CharField(max_length=10)
 
     class Meta:
         db_table = "posts"

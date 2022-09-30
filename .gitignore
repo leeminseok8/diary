@@ -385,6 +385,3 @@ zsdoc/data
 
 #edit
 .vscode
-
-#black
-.pre-commit-config.yaml

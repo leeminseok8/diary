@@ -8,6 +8,9 @@ python-dotenv = "*"
 mysqlclient = "*"
 django = "*"
 djangorestframework = "*"
+black = "*"
+pre-commit = "*"
+drf-yasg = "*"
 
 [dev-packages]
 

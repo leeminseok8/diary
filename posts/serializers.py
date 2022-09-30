@@ -8,6 +8,11 @@ from posts.models import Post
 
 
 class PostCreateSerializer(serializers.ModelSerializer):
+    """
+    일기장 생성 시리얼라이저
+    생성 시 비밀번호 validation과 암호화를 진행
+    """
+
     password = serializers.CharField(write_only=True)
 
     class Meta:

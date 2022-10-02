@@ -4,7 +4,7 @@ from django.contrib.auth.hashers import make_password
 
 from rest_framework import serializers
 
-from posts.models import Post
+from apps.posts.models import Post
 
 
 class PostCreateSerializer(serializers.ModelSerializer):

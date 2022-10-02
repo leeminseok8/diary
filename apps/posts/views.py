@@ -6,8 +6,8 @@ from rest_framework.pagination import CursorPagination
 from .serializers import PostCreateSerializer
 from .permissions import IsAuthorUser
 
-from .models import Post
-from service.whether import WhetherView
+from apps.posts.models import Post
+from apps.service.whether import WhetherView
 
 
 class ProductPagination(CursorPagination):

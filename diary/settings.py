@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 THIRD_PARTY_APPS = ["rest_framework", "drf_yasg"]
 
 LOCAL_APPS = [
-    "posts",
+    "apps.posts",
 ]
 
 INSTALLED_APPS += THIRD_PARTY_APPS + LOCAL_APPS
